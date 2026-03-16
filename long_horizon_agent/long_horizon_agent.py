@@ -21,6 +21,8 @@ from tools import (
     web_search,
 )
 
+MAX_CYCLES = 8
+SUPPORTED_PERIODS = {"1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"}
 
 COMPANY_TO_TICKER = {
     "microsoft": "MSFT",
@@ -38,6 +40,8 @@ executor_llm = ChatOllama(model="llama3.1", temperature=0)
 
 executor_tools = [
     calculate_advanced_math,
+    get_stock_price,
+    get_financial_statements,
     web_search,
     get_stock_risk_metrics,
     get_financial_news,
