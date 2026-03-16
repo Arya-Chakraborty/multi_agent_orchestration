@@ -21,7 +21,7 @@ from tools import (
     web_search,
 )
 
-MAX_CYCLES = 8
+MAX_CYCLES = 15
 SUPPORTED_PERIODS = {"1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"}
 
 COMPANY_TO_TICKER = {
@@ -35,7 +35,8 @@ COMPANY_TO_TICKER = {
     "tesla": "TSLA",
 }
 
-planner_llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite-preview", temperature=0)
+# planner_llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite-preview", temperature=0)
+planner_llm = ChatOllama(model="llama3.1", temperature=0)
 executor_llm = ChatOllama(model="llama3.1", temperature=0)
 
 executor_tools = [
